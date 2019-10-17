@@ -7,8 +7,7 @@ import scrapy
 class ReversoSpider(scrapy.Spider):
     name = 'reverso'
     allowed_domains = ['https://context.reverso.net']
-    # start_urls = ['https://context.reverso.net/favourites']
-    start_urls = ['https://account.reverso.net/login/context.reverso.net/en']
+    start_urls = [f'https://context.reverso.net/favourites/{os.getenv("USER")}']
 
     def parse(self, response):
         return scrapy.FormRequest.from_response(
